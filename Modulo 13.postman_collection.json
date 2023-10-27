@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "1f1d8fc8-e29b-4b17-81bf-ed8d501b769f",
+		"name": "Atividade Módulo 13",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30020291"
+	},
+	"item": [
+		{
+			"name": "Carrinhos",
+			"item": [
+				{
+					"name": "Listar carrinhos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validar carrinho\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"BeeJh5lz3k6kSIzA\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}carrinhos",
+							"host": [
+								"{{local}}carrinhos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar carrinho",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aWxoZXJtZWJhcHRpc3RhQHFhLmNvbS5iciIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE2OTgyODU3NTEsImV4cCI6MTY5ODI4NjM1MX0.mJKiTVwwqDK9Pqx2_3DMCZaa59Rdo1LrJRJHNoG-Pxc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"produtos\": [\r\n    {\r\n      \"idProduto\": \"K6leHdftCeOJj8BJ\",\r\n      \"quantidade\": 1\r\n    },\r\n    {\r\n      \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n      \"quantidade\": 3\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}carrinhos",
+							"host": [
+								"{{local}}carrinhos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Listar produtos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validar produto da lista\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Logitech MX Vertical\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}produtos",
+							"host": [
+								"{{local}}produtos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listar usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{local}}usuarios",
+					"host": [
+						"{{local}}usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Bruna Alves\",\r\n  \"email\": \"brualves@qa.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}usuarios",
+					"host": [
+						"{{local}}usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aWxoZXJtZWJhcHRpc3RhQHFhLmNvbS5iciIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE2OTgyODQzNjQsImV4cCI6MTY5ODI4NDk2NH0.SUblZcy9SM9dqoMo_ATKxQkbAI_XAUH47Q8OJcCPJTg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"guilhermebaptista@qa.com.br\",\r\n  \"password\": \"teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}login",
+					"host": [
+						"{{local}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar usuário por ID (200)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}usuarios/fT7EaGY2eWtJsFSQ",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"fT7EaGY2eWtJsFSQ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar usuário por ID (400)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}usuarios/fT7EaGY2eWtJsFSQ1",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"fT7EaGY2eWtJsFSQ1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir usuario (200)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{local}}usuarios/0uxuPY0cbmQhpEz1",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"0uxuPY0cbmQhpEz1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir usuario (400)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{local}}usuarios/v2OUnLTJSMYK2oMA",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"v2OUnLTJSMYK2oMA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuario (200)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\r\n            \"nome\": \"Lucas Souza Silva\",\r\n            \"email\": \"lucassouzasilva@qa.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}usuarios/ubqAjYHtkJIAzD7P",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"ubqAjYHtkJIAzD7P"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuário (201)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n            \"nome\": \"Lucas Souza Silva\",\r\n            \"email\": \"lucassouza@qa.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}usuarios/ubqAjYHtkJIAzD7P1",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"ubqAjYHtkJIAzD7P1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuario (400)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"nome\": \"Lucas Souza Silva\",\r\n            \"email\": \"lucassouza@qa.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}usuarios/ubqAjYHtkJIAzD7P",
+					"host": [
+						"{{local}}usuarios"
+					],
+					"path": [
+						"ubqAjYHtkJIAzD7P"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
